@@ -1,0 +1,5 @@
+INFO  Starting process: Data Ingestion
+INFO  Checking database connection...
+INFO  Connection established successfully.
+INFO  Fetching data from source API.
+END OF OUTPUT LOG

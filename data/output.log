@@ -1,0 +1,56 @@
+INFO  Starting process: Data Ingestion
+INFO  Checking database connection...
+INFO  Connection established successfully.
+INFO  Fetching data from source API.
+INFO  Data retrieved: 1203 records.
+INFO  Transforming data...
+INFO  Data transformation complete. 1203 records processed.
+INFO  Validating transformed data...
+WARN  Missing values detected in 3 records.
+INFO  Attempting to fill missing values.
+INFO  Missing values filled using median strategy.
+INFO  Validated successfully. Proceeding with database insertion.
+INFO  Inserting records into the database...
+INFO  Batch 1 inserted (400 records).
+INFO  Batch 2 inserted (400 records).
+INFO  Batch 3 inserted (403 records).
+INFO  All records inserted successfully.
+INFO  Running post-insertion checks...
+INFO  Post-insertion checks passed.
+INFO  Process completed successfully.
+INFO  Generating summary report...
+INFO  Report generated: /logs/data_ingestion_20250202.log
+INFO  Sending completion notification...
+INFO  Notification sent successfully.
+INFO  Process finished.
+INFO  Starting process: Model Training
+INFO  Loading dataset...
+INFO  Dataset loaded: 100,000 samples.
+INFO  Splitting dataset into train and test sets.
+INFO  Train set: 80,000 samples, Test set: 20,000 samples.
+INFO  Initializing model...
+INFO  Model initialized with 4 hidden layers.
+INFO  Training started...
+INFO  Epoch 1/10 - Loss: 0.4567, Accuracy: 78.5%
+INFO  Epoch 2/10 - Loss: 0.3421, Accuracy: 84.2%
+INFO  Epoch 3/10 - Loss: 0.2894, Accuracy: 86.9%
+INFO  Epoch 4/10 - Loss: 0.2511, Accuracy: 89.1%
+WARN  High variance detected, possible overfitting.
+INFO  Epoch 5/10 - Loss: 0.2345, Accuracy: 90.3%
+INFO  Epoch 6/10 - Loss: 0.2201, Accuracy: 91.4%
+INFO  Epoch 7/10 - Loss: 0.2104, Accuracy: 92.0%
+INFO  Epoch 8/10 - Loss: 0.2012, Accuracy: 92.7%
+INFO  Epoch 9/10 - Loss: 0.1935, Accuracy: 93.1%
+INFO  Epoch 10/10 - Loss: 0.1878, Accuracy: 93.6%
+INFO  Training completed.
+INFO  Evaluating model performance on test set...
+INFO  Test Accuracy: 92.4%
+INFO  Saving trained model...
+INFO  Model saved: /models/trained_model_20250202.h5
+INFO  Generating training report...
+INFO  Report saved: /logs/model_training_20250202.log
+INFO  Process completed successfully.
+INFO  Sending completion notification...
+INFO  Notification sent successfully.
+INFO  Process finished.
+END OF OUTPUT LOG
