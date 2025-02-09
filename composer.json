@@ -10,9 +10,10 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
+        "ext-redis": "*",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
-        "ext-redis": "*"
+        "lunfel/redis-stream-wrapper": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

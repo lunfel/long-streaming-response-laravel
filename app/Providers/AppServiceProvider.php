@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Output\RedisStreamWrapper;
 use Illuminate\Support\ServiceProvider;
+use Lunfel\RedisStreamWrapper\RedisStreamWrapper;
 
 class AppServiceProvider extends ServiceProvider
 {

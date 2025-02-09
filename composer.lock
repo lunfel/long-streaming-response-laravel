@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "626b9e7ddd47fb7eff9aaa53cce0c9ad",
+    "content-hash": "a926d42913e45cbe99f59551cd228a5b",
     "packages": [
         {
             "name": "brick/math",
@@ -2005,6 +2005,47 @@
                 }
             ],
             "time": "2024-12-08T08:18:47+00:00"
+        },
+        {
+            "name": "lunfel/redis-stream-wrapper",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lunfel/redis-stream-wrapper.git",
+                "reference": "35355da5c0c5a329d609da9c84bd159f9cd01d6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lunfel/redis-stream-wrapper/zipball/35355da5c0c5a329d609da9c84bd159f9cd01d6d",
+                "reference": "35355da5c0c5a329d609da9c84bd159f9cd01d6d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-redis": "*",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "ext-mbstring": "*",
+                "phpunit/phpunit": "^11.5|^10.5.44"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lunfel\\RedisStreamWrapper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Mathieu Tanguay"
+                }
+            ],
+            "description": "lunfel/redis-stream-wrapper",
+            "support": {
+                "issues": "https://github.com/lunfel/redis-stream-wrapper/issues",
+                "source": "https://github.com/lunfel/redis-stream-wrapper/tree/1.0.0"
+            },
+            "time": "2025-02-05T03:49:06+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -8082,7 +8123,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2"
+        "php": "^8.3",
+        "ext-redis": "*"
     },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"

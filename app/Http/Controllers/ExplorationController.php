@@ -2,6 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\ArtisanCommandRun;
+use App\Enums\ArtisanCommandRunStatus;
+use App\Http\Requests\ArtisanCommandRequest;
+use App\Jobs\RunArtisanCommand;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis as RedisFacade;
 use Redis;
 
@@ -65,5 +72,50 @@ class ExplorationController extends Controller
                 sleep(1);
             }
         });
+    }
+
+    public function run(ArtisanCommandRequest $request)
+    {
+        $artisanRun = new ArtisanCommandRun();
+
+        $artisanRun->setStatus(ArtisanCommandRunStatus::Queued);
+
+        RunArtisanCommand::dispatch(
+            $request->getCommand(),
+            $artisanRun
+        );
+
+        return response()->json([
+            'artisanRunId' => $artisanRun->__toString()
+        ], Response::HTTP_ACCEPTED);
+    }
+
+    public function tail(string $artisanRunId, Request $request)
+    {
+        $artisanRun = new ArtisanCommandRun($artisanRunId);
+
+        $streamContext = stream_context_create([
+            'redis' => [
+                'client' => function (): Redis {
+                    return \Illuminate\Support\Facades\Redis::connection('cache')
+                        ->client();
+                }
+            ]
+        ]);
+
+        $handle = $artisanRun->getStream('r', $streamContext);
+    }
+
+    public function status(string $artisanRunId)
+    {
+        $artisanRun = new ArtisanCommandRun($artisanRunId);
+
+        if (!$artisanRun->exists()) {
+            abort(404);
+        }
+
+        return response()->json([
+            'status' => $artisanRun->getStatus()
+        ]);
     }
 }
